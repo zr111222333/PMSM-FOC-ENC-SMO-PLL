@@ -1,0 +1,238 @@
+version: "4.1"
+name: atk_f407
+type: ARM
+deviceName: null
+packDir: null
+srcDirs: []
+virtualFolder:
+  name: <virtual_root>
+  files: []
+  folders:
+    - name: Startup
+      files:
+        - path: ../../Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/arm/startup_stm32f407xx.s
+      folders: []
+    - name: User
+      files:
+        - path: ../../User/main.c
+        - path: ../../User/stm32f4xx_it.c
+        - path: ../../Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/system_stm32f4xx.c
+        - path: ../../User/main.h
+      folders: []
+    - name: Drivers
+      files: []
+      folders:
+        - name: SYSTEM
+          files:
+            - path: ../../Drivers/SYSTEM/delay/delay.c
+            - path: ../../Drivers/SYSTEM/sys/sys.c
+            - path: ../../Drivers/SYSTEM/usart/usart.c
+          folders: []
+        - name: STM32F4xx_HAL_Driver
+          files:
+            - path: ../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c
+            - path: ../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c
+            - path: ../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c
+            - path: ../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c
+            - path: ../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c
+            - path: ../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c
+            - path: ../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_usart.c
+            - path: ../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c
+            - path: ../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c
+            - path: ../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c
+            - path: ../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c
+            - path: ../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_sram.c
+            - path: ../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_fsmc.c
+            - path: ../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c
+            - path: ../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c
+            - path: ../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c
+            - path: ../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c
+            - path: ../../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.c
+          folders: []
+        - name: BSP
+          files:
+            - path: ../../Drivers/BSP/LED/led.c
+            - path: ../../Drivers/BSP/KEY/key.c
+          folders: []
+    - name: Motor
+      files:
+        - path: ../../Motor/Motor_Key.c
+        - path: ../../Motor/Motor_Key.h
+        - path: ../../Motor/Motor_USART.c
+        - path: ../../Motor/Motor_USART.h
+        - path: ../../Motor/PMSM.c
+        - path: ../../Motor/PMSM.h
+        - path: ../../Motor/PMSM_TIM.c
+        - path: ../../Motor/PMSM_TIM.h
+        - path: ../../Motor/Encoder.c
+        - path: ../../Motor/Encoder.h
+        - path: ../../Motor/ADC.c
+        - path: ../../Motor/ADC.h
+        - path: ../../Motor/BLDC_TIM.c
+        - path: ../../Motor/BLDC_TIM.h
+        - path: ../../Motor/PID.c
+        - path: ../../Motor/PID.h
+        - path: ../../Motor/FOC.c
+        - path: ../../Motor/FOC.h
+        - path: ../../Motor/SMO.c
+        - path: ../../Motor/SMO.h
+        - path: ../../Motor/motor_protection.c
+        - path: ../../Motor/motor_protection.h
+        - path: ../../Motor/Motor_State.c
+        - path: ../../Motor/Motor_State.h
+        - path: ../../Motor/Motor_PID_Tuner.c
+        - path: ../../Motor/Motor_PID_Tuner.h
+        - path: ../../Motor/Motor_Identify.c
+        - path: ../../Motor/Motor_Identify.h
+        - path: ../../Motor/Motor_CAN.c
+        - path: ../../Motor/Motor_CAN.h
+      folders: []
+dependenceList: []
+outDir: build
+miscInfo:
+  uid: ed1dd8640eee404f3b50bb38a46afe4f
+targets:
+  DC_MOTOR:
+    cppPreprocessAttrs:
+      defineList:
+        - USE_HAL_DRIVER
+        - STM32F407xx
+      incList:
+        - ../../User
+        - ../../Drivers
+        - ../../Drivers/CMSIS/Device/ST/STM32F4xx/Include
+        - ../../Drivers/CMSIS/Include
+        - ../../Drivers/STM32F4xx_HAL_Driver/Inc
+        - ../../Middlewares
+        - ../../Motor
+        - .cmsis/include
+        - RTE/_DC_MOTOR
+      libList: []
+    excludeList: []
+    settings:
+      debugger: cortex-debug
+    toolchain: AC5
+    toolchainConfigMap:
+      AC5:
+        archExtensions: ""
+        cpuType: Cortex-M4
+        floatingPointHardware: single
+        options:
+          version: 4
+          afterBuildTasks: []
+          asm-compiler:
+            defines: []
+          beforeBuildTasks: []
+          c/cpp-compiler:
+            CXX_FLAGS: --diag_suppress=1 --diag_suppress=1295
+            C_FLAGS: --diag_suppress=1 --diag_suppress=1295
+            c99-mode: true
+            one-elf-section-per-function: true
+            optimization: level-0
+            warnings: all-warnings
+          global:
+            output-debug-info: enable
+            use-microLIB: false
+          linker:
+            $outputTaskExcludes:
+              - .bin
+            output-format: elf
+            ro-base: "0x08000000"
+            rw-base: "0x20000000"
+            xo-base: ""
+        scatterFilePath: ""
+        storageLayout:
+          RAM:
+            - id: 1
+              isChecked: false
+              mem:
+                size: "0x0"
+                startAddr: "0x0"
+              noInit: false
+              tag: RAM
+            - id: 2
+              isChecked: false
+              mem:
+                size: "0x0"
+                startAddr: "0x0"
+              noInit: false
+              tag: RAM
+            - id: 3
+              isChecked: false
+              mem:
+                size: "0x0"
+                startAddr: "0x0"
+              noInit: false
+              tag: RAM
+            - id: 1
+              isChecked: true
+              mem:
+                size: "0x20000"
+                startAddr: "0x20000000"
+              noInit: false
+              tag: IRAM
+            - id: 2
+              isChecked: false
+              mem:
+                size: "0x10000"
+                startAddr: "0x10000000"
+              noInit: false
+              tag: IRAM
+          ROM:
+            - id: 1
+              isChecked: false
+              isStartup: false
+              mem:
+                size: "0x0"
+                startAddr: "0x0"
+              tag: ROM
+            - id: 2
+              isChecked: false
+              isStartup: false
+              mem:
+                size: "0x0"
+                startAddr: "0x0"
+              tag: ROM
+            - id: 3
+              isChecked: false
+              isStartup: false
+              mem:
+                size: "0x0"
+                startAddr: "0x0"
+              tag: ROM
+            - id: 1
+              isChecked: true
+              isStartup: true
+              mem:
+                size: "0x100000"
+                startAddr: "0x8000000"
+              tag: IROM
+            - id: 2
+              isChecked: false
+              isStartup: false
+              mem:
+                size: "0x0"
+                startAddr: "0x0"
+              tag: IROM
+        useCustomScatterFile: false
+    uploadConfigMap:
+      JLink:
+        baseAddr: ""
+        bin: ""
+        cpuInfo:
+          cpuName: "null"
+          vendor: "null"
+        otherCmds: ""
+        proType: 1
+        speed: 8000
+      STLink:
+        address: "0x8000000"
+        bin: ""
+        elFile: None
+        optionBytes: .eide/dc_motor.st.option.bytes.ini
+        otherCmds: ""
+        proType: SWD
+        resetMode: default
+        runAfterProgram: true
+        speed: 4000
+    uploader: STLink
