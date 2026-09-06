@@ -28,17 +28,17 @@
 整体状态机：
 
 IDLE
-↓
+->
 CURRENT_OFFSET
-↓
+->
 ALIGN
-↓
+->
 PARAM_IDENTIFY
-↓
+->
 ALIGN
-↓
+->
 OPEN_LOOP
-↓
+->
 ENCODER_RUN
 ⇅
 SMO_RUN
